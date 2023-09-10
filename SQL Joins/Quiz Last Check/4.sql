@@ -21,5 +21,5 @@ FROM region r
     JOIN accounts a ON a.sales_rep_id = s.id
     JOIN orders o ON o.account_id = a.id
 WHERE o.standard_qty > 100;
--- I joined the sales reps table by mathing the account's sales_rep id to the sales_reps' id, but they joined it by matching the region id to the region's id
+-- I joined the sales reps table by matching the account's sales_rep id to the sales_reps' id, but they joined it by matching the region id to the region's id
 -- Looks like they return the same thing.
