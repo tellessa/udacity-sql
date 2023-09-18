@@ -12,7 +12,7 @@ ORDER BY num_events DESC;
 -- We can connect web_events.account_id to a.id
 -- And a.sales_rep_id to s.id
 -- And s.region_id to r.id
--- THeir answer:
+-- Their answer:
 SELECT r.name,
     w.channel,
     COUNT(*) num_events
