@@ -24,7 +24,7 @@ HAVING COUNT(*) > 5
 ORDER BY num_reps_above5;
 -- You have to join to the accounts table because that's the only way to know how many accounts have a foreign key to a given sales rep.
 -- Count(*) will be much higher when all those rows having a foreign key of the same sales rep are brought into the result set, and much lower without that join
--- I missed the join mainly, but I also only had one column in my group by clause
+-- I missed the join mainly, but I also only had one column in my group by clause; I was forgetting that they can't be in the select, which includes an agg function, unless they also appear in the group by clause.
 -- alt answer using a subquery. Not sure what the value of this is, as all we seemed to get back was the same number with a different alias.
 SELECT COUNT(*) num_reps_above5
 FROM(
