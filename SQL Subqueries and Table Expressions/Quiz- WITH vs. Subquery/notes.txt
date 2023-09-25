@@ -1,0 +1,6 @@
+When using WITH, we can put the alias first, followed by AS and the subquery in parantheses
+A single WITH keyword can be followed by multiple alias assignments (my term).
+WITH statements are also called Common Table Expressions or CTE.
+They serve the exact same purpose as subqueries.
+They are more common in practice because they tend to be cleaner for future reader to follow their logic.
+Creating a CTE is a lot like moving complex logic into its own function then assigning the results of calling that function into a variable.
