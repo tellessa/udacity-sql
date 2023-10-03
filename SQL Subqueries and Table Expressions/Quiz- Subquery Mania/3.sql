@@ -100,3 +100,24 @@ GROUP BY 1
 ORDER BY 2 DESC;
 -- Putting in the literal 56 instead of the subquery works.
 -- The subquery is not returning 56 though, it's returning 41617
+-- Answer:
+SELECT COUNT(*)
+FROM (
+        SELECT a.name
+        FROM orders o
+            JOIN accounts a ON a.id = o.account_id
+        GROUP BY 1
+        HAVING SUM(o.total) > (
+                SELECT total
+                FROM (
+                        SELECT a.name act_name,
+                            SUM(o.standard_qty) tot_std,
+                            SUM(o.total) total
+                        FROM accounts a
+                            JOIN orders o ON o.account_id = a.id
+                        GROUP BY 1
+                        ORDER BY 2 DESC
+                        LIMIT 1
+                    ) inner_tab
+            )
+    ) counter_tab;
