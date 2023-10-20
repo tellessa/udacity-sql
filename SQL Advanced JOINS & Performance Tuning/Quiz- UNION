@@ -1,0 +1,7 @@
+SELECT *
+FROM accounts a1
+WHERE name = 'Walmart'
+UNION ALL
+SELECT *
+FROM accounts a2
+WHERE name = 'Disney';
